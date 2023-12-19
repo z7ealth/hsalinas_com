@@ -24,3 +24,6 @@ hsalinas_com-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# SSG output
+/dist
