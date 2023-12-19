@@ -1,9 +1,11 @@
 module.exports = {
   content: [
-    "./**/*.js",
-    "../lib/hsalinas_com.ex.ex",
+    './js/**/*.js',
+    '../lib/*.ex',
+    '../lib/*/**/*.*ex',
   ],
-  plugins: [
-    require("@tailwindcss/typography"),
-  ]
-};
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}

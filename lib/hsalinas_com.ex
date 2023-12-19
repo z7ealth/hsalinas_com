@@ -2,7 +2,6 @@ defmodule HsalinasCom do
   use Phoenix.Component
 
   @output_dir "./dist"
-  File.mkdir_p!(@output_dir)
 
   def index(assigns) do
     ~H"""
@@ -21,17 +20,20 @@ defmodule HsalinasCom do
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>HTML 5 Boilerplate</title>
-        <link rel="stylesheet" href="/assets/app.css" />
-        <script type="text/javascript" src="/assets/app.js" />
+        <link rel="stylesheet" href="./assets/app.css" />
+        <script type="text/javascript" src="./assets/app.js" />
       </head>
       <body>
-        <%= render_slot(@inner_block) %>
+        <div class="flex w-screen h-screen bg-slate-900">
+          <%= render_slot(@inner_block) %>
+        </div>
       </body>
     </html>
     """
   end
 
   def build() do
+    File.mkdir_p!(@output_dir)
     render_file("index.html", index([]))
 
     :ok
